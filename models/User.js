@@ -24,10 +24,10 @@ const userSchema = new Schema(
                 ref: 'User',
             }
         ],
-        comments: [
+        thoughts: [
             {
                 type: Schema.Types.ObjectId,
-                ref: 'Comment',
+                ref: 'Thoughts',
             }
         ],
     },

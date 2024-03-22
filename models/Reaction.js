@@ -1,12 +1,12 @@
 const { Schema, Types } = require('mongoose');
 
-const feedbackSchema = new Schema(
+const reactionSchema = new Schema(
     {
-        feedbackId: {
+        reactionId: {
             type: Schema.Types.ObjectId,
             default: () => new Types.ObjectId(),
         },
-        feedbackBody: {
+        reactionBody: {
             type: String,
             require: true,
             maxLength: 280,
@@ -29,4 +29,4 @@ const feedbackSchema = new Schema(
     }
 );
 
-module.exports = feedbackSchema
+module.exports = reactionSchema
