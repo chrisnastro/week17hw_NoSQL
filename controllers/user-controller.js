@@ -1,21 +1,30 @@
-const { User } = require('../models');
+const { User, Thought } = require('../models');
 
-const UserController = {
+const userController = {
     getAllUsers(req, res) {
         User.find({})
         .then(userData => res.json(userData))
         .catch(err => res.status(500).json(err));
     },
+
     getUserById(req, res) {
         User.findById(req.params.userId)
         .then(userData => res.json(userData))
         .catch(err => res.status(500).json(err));
     },
-    createUser(req, res) {
-        User.create(req.body)
-        .then(userData => res.json(userData))
-        .catch(err => res.status(500).json(err));
-    },
+
+    createUser({ body }, res) {
+        User.create(body)
+          .then((userData) => res.json(userData))
+          .catch((err) => res.json(err));
+      },
+
+    // createUser(req, res) {
+    //     User.create(req.body)
+    //     .then(userData => res.json(userData))
+    //     .catch(err => res.status(500).json(err));
+    // },
+
     updateUserById(req, res) {
         User.findOneAndUpdate(req.params.id, req.body, { new: true })
         .then(userData => {
@@ -26,6 +35,7 @@ const UserController = {
         })
         .catch(err => res.status(500).json(err));
     },
+
     deleteUserById(req, res) {
         User.findOneAndDelete(req.params.id)
         .then(userData => {
@@ -36,6 +46,7 @@ const UserController = {
         })
         .catch(err => res.status(500).json(err));
     },
+
     addFriend(req, res) {
         User.findOneAndUpdate(
             { _id: req.params.userId },
@@ -50,6 +61,7 @@ const UserController = {
         })
         .catch(err => res.status(500).json(err));
     },
+    
     deleteFriend({ params }, res) {
         User.findOneAndUpdate(
             { _id: params.userId },
@@ -71,4 +83,4 @@ const UserController = {
     },
 };
 
-module.exports = UserController;
+module.exports = userController;

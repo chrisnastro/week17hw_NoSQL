@@ -1,7 +1,7 @@
 const { Thought, User, Reaction } = require('../models');
 const { Types } = require('mongoose');
 
-const ThoughtController = {
+const thoughtController = {
     async getAllThoughts(req, res) {
         try {
             const thoughts = await Thought.find({});
@@ -79,4 +79,4 @@ const ThoughtController = {
     },
 };
 
-module.exports = ThoughtController;
+module.exports = thoughtController;

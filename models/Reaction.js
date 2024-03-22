@@ -18,7 +18,7 @@ const reactionSchema = new Schema(
         createdAt: {
             type: Date,
             default: Date.now,
-            get: timestamp => new Date(timestamp).toLocaleDateString(),
+            get: timestamp => dateFormat(timestamp),
         },
     },
     {
@@ -29,4 +29,4 @@ const reactionSchema = new Schema(
     }
 );
 
-module.exports = reactionSchema
+module.exports = reactionSchema;
