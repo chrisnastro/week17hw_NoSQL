@@ -21,12 +21,6 @@ const reactionSchema = new Schema(
             get: timestamp => dateFormat(timestamp),
         },
     },
-    {
-        toJSON: {
-            getters: true,
-        },
-        id: false,
-    }
 );
 
 module.exports = reactionSchema;

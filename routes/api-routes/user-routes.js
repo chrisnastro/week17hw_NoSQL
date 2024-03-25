@@ -1,7 +1,5 @@
-// Imports
 const router = require("express").Router();
 
-// Imports functions written in userController.js file
 const {
   getUsers,
   getUser,
@@ -25,5 +23,4 @@ router
 // Route -> http://localhost:3001/api/users/:userId/friends/:friendId
 router.route("/:userId/friends/:friendId").post(addFriend).delete(deleteFriend);
 
-// Exports
 module.exports = router;

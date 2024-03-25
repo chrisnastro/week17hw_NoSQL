@@ -38,7 +38,7 @@ const thoughtController = {
             res.status(500).json(err);
         }
     },
-    async updateThoughtById(req, res) {
+    async updateThought(req, res) {
         try {
             const thought = await Thought.findByIdAndUpdate(req.params.thoughtId, req.body, {
                 new: true,
